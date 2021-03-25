@@ -65,14 +65,6 @@ class LRU_Cache(object):
         else:
             return -1
 
-
-
-   
-
-
-
-
-
     def set(self, key, value):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
         # if check if chack is full 
@@ -122,9 +114,6 @@ class LRU_Cache(object):
             if len(self.cache_history) > self.capacity:
                  self.cache_history.pop()
 
-            
-
-
     def size(self):
         return len(self.cache)
     
@@ -171,3 +160,24 @@ print(our_cache.get(8))     # returns 8
 print(our_cache.get(9))     # returns 9
 print(our_cache.get(6))     # returns -1
 
+
+# test case where capacity is null
+our_cache = LRU_Cache(0)
+
+our_cache.set(1, 1);
+our_cache.set(2, 2);
+our_cache.set(3, 3);
+
+print(our_cache.get(1))       # returns None since capacity is 0
+print(our_cache.get(2))       # returns None since capacity is 0
+
+
+# test case where capacity is negative
+our_cache = LRU_Cache(-5)
+
+our_cache.set(1, 1);
+our_cache.set(2, 2);
+our_cache.set(3, 3);
+
+print(our_cache.get(1))       # returns -1 since capacity is -1
+print(our_cache.get(2))       # returns -1 since capacity is -1

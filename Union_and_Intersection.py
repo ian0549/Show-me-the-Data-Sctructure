@@ -49,11 +49,9 @@ def union(llist_1, llist_2):
     
     union_linked_list = LinkedList()
 
-    if llist_1 == None:
-        return llist_2
-    if llist_2 == None:
-        return llist_1
-
+    if llist_1 == None or llist_2 == None:
+        return None
+   
     current_ll1 = llist_1.head
     current_ll2 = llist_2.head
 
@@ -81,9 +79,7 @@ def intersection(llist_1, llist_2):
     
     inter_secction = LinkedList()
 
-    if llist_1 == None:
-        return None
-    if llist_2 == None:
+    if llist_1 == None or llist_2 == None:
         return None
 
     set1 = set()
@@ -149,3 +145,26 @@ for i in element_2:
 
 print (union(linked_list_3,linked_list_4))
 print (intersection(linked_list_3,linked_list_4))
+
+# Test case 3 where two linked list are empty
+print(" two empty linked list")
+linked_list_5 = LinkedList()
+linked_list_6 = LinkedList()
+
+print (union(linked_list_5,linked_list_6))
+print (intersection(linked_list_5,linked_list_6))
+
+
+# Test case 4 where one linked list is empty
+print(" one empty linked list")
+linked_list_7 = LinkedList()
+linked_list_8 = LinkedList()
+
+element_1 = [3,2,4,35,6,65,6,4,3,23]
+
+
+for i in element_1:
+    linked_list_7.append(i)
+
+print (union(linked_list_7,linked_list_8))
+print (intersection(linked_list_7,linked_list_8))

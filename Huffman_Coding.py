@@ -88,8 +88,10 @@ def Huffcode_table(tree):
 
 def huffman_encoding(data):
     
+    
+ 
     if len(get_frequencies(data)) == 1:
-        return "0"*len(data)
+        return "0" * len(data), None
     
     huffcode = ""
     tree = huffman_tree(data)
@@ -105,6 +107,10 @@ def huffman_encoding(data):
 
 def huffman_decoding(data,tree):
     
+
+    if tree == None:
+        return None
+        
     if len(get_frequencies(data)) == 1:
         return len(data) * str(tree.value)
     decode = ""
@@ -145,3 +151,40 @@ if __name__ == "__main__":
 
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+
+    # edge case test where string is empty and also string has repetitive char
+
+    sentence = " "
+
+    print ("The size of the data is: {}\n".format(sys.getsizeof(sentence)))
+    print ("The content of the data is: {}\n".format(sentence))
+
+    encoded_data, tree = huffman_encoding(sentence)
+
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+
+    # repetitive case
+
+    sentence = "AAAAABBBBBBCCCCTTTTGGGGJJJHHGOINGTOSCHOOL"
+
+    print ("The size of the data is: {}\n".format(sys.getsizeof(sentence)))
+    print ("The content of the data is: {}\n".format(sentence))
+
+    encoded_data, tree = huffman_encoding(sentence)
+
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree)
+
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the encoded data is: {}\n".format(decoded_data))
+

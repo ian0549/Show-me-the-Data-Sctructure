@@ -38,6 +38,8 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
+    if group == []:
+        return None
     users = group.get_users()
 
     if user in users:
@@ -83,3 +85,30 @@ print(group.get_name(), "group have user1?", is_user_in_group(user1, group))
 print(group.get_name(), "group have user2?", is_user_in_group(user2, group))
 print(group.get_name(), "group have user3?", is_user_in_group(user3, group))
 print(group.get_name(), "group have user4?", is_user_in_group(user4, group))
+
+
+# Group with no Users test
+# empty group has user? False
+group = Group("test_groupp")
+user1 = "user1"
+user2 = "user2"
+user3 = "user3"
+
+
+print(group.get_name(), "group have user1?", is_user_in_group(user1, group))
+print(group.get_name(), "group have user2?", is_user_in_group(user2, group))
+print(group.get_name(), "group have user3?", is_user_in_group(user3, group))
+
+
+# Group test, users with no parent
+group = Group("mygroup")
+user1 = "user1"
+user2 = "user2"
+user3 = "user3"
+
+group.add_user(user1)
+
+print(group.get_name(), "group have user1?", is_user_in_group(user1, group))
+print(group.get_name(), "group have user2?", is_user_in_group(user2, group))
+print(group.get_name(), "group have user3?", is_user_in_group(user3, group))
+

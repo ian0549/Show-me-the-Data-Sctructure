@@ -9,3 +9,5 @@ The intersection part utilized sets from python's collection to find the union b
 
 Both union and intersection functions required the traversing of the linked lists, and therefore
 the time complexity is O(n) where n is the mas length of the two linked lists.
+the space complexity is for intersection is O(1) because sets use constant amoun of space irrespective of input size.
+on the other hand, that of union function is O(n) were n denotes the number of data stored in list.

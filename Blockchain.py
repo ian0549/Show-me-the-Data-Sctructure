@@ -19,14 +19,21 @@ def calc_hash(data):
 
 class Block:
     
-    def __init__(self, data, previous_hash):
-      self.timestamp = datetime.datetime.utcnow()
+    def __init__(self, data, previous_hash, timestamp):
+      self.timestamp = timestamp 
       self.data = data
       self.previous_hash = previous_hash
       self.hash = calc_hash(data)
       self.previews_block = None
 
 
+    def __str__(self): 
+        timestamp = f'Timestamp: {self.timestamp}'
+        data = f'Data: {self.data}'
+        hash = f'Hash: {self.hash}'
+        previous_hash = f'previous_hash: {self.previous_hash}'
+
+        return  f'{data} {hash} {previous_hash} {timestamp}'
 
 
 class BlockChain:
@@ -36,15 +43,15 @@ class BlockChain:
 
 
 
-      def append(self,data,previews_hash):
+      def append(self,data,previews_hash, timestamp):
 
       
             if self.head == None:
                   
-                  self.head = Block(data, 0)
+                  self.head = Block(data, 0, timestamp)
                   return
 
-            new_block = Block(data,self.head.hash)
+            new_block = Block(data,self.head.hash, timestamp)
 
             new_block.previews_block = self.head
             self.head = new_block 
@@ -85,7 +92,7 @@ class BlockChain:
 """
 Test Cases
 """
-
+timestamp = datetime.datetime.utcnow()
 A = BlockChain()
 print("size",A.size())
 print(A.head)
@@ -93,7 +100,7 @@ print(A.head)
 
 
 B = BlockChain()
-B.append("Genesis",0)
+B.append("Genesis",0,timestamp)
 print("size",B.size())
 for item in B.to_list():
     print(item)
@@ -102,5 +109,35 @@ for item in B.to_list():
 
 print("Test Case 3 Two item BlockChain")
 C = BlockChain()
-C.append("Genesis",0)
-C.append("Exodus",calc_hash("Genesis"))
+C.append("Genesis",0,timestamp)
+C.append("Exodus",calc_hash("Genesis"),timestamp)
+print("size",C.size())
+for item in C.to_list():
+    print(item)
+
+"""
+Test Case with empy block
+"""
+print("Test Case with empty Block")
+C = BlockChain()
+
+
+
+print("size",C.size())
+for item in C.to_list():
+    print(item)
+
+
+"""
+Test Case with the sampe time stamp
+"""
+print("Test Case with empty Block")
+C = BlockChain()
+same_time = 0
+C.append("Genesis",0,same_time)
+C.append("Exodus",calc_hash("Genesis"),same_time)
+C.append("Mathew",calc_hash("Exodus"),same_time)
+
+print("size",C.size())
+for item in C.to_list():
+    print(item)

@@ -65,3 +65,21 @@ def find_files(suffix, path):
 
 # should print a list of files ending in .c
 print(find_files(".c", 'C:\\Users\\IAN CECIL AKOTO\\Desktop\\Data Structures and Algorithm\\Show me your data Sctructure\\testdir'))
+
+# ****Empty test directory****
+print("Empty test directory")
+print(find_files(".c", 'C:\\Users\\IAN CECIL AKOTO\\Desktop\\Data Structures and Algorithm\\Show me your data Sctructure\\testdir\\New folder'))
+
+
+# ****Invalid test directory****
+print("Invalid test directory")
+print(find_files(".c", 'C:\\Users\\IAN CECIL AKOTO\\Desktop\\Data Structures and Algorithm\\Show me your data Sctructure\\invalid Directory'))
+
+
+# ****No files ending in .c test no_c_dir****
+print("No files ending in .c test no_c_dir")
+print(find_files(".c", 'C:\\Users\\IAN CECIL AKOTO\\Desktop\\Data Structures and Algorithm\\Show me your data Sctructure\\testdir\\subdir4'))
+
+# ****Single file ending in .c test c_dir****
+print("Single file ending in .c test c_dir")
+print(find_files(".c", 'C:\\Users\\IAN CECIL AKOTO\\Desktop\\Data Structures and Algorithm\\Show me your data Sctructure\\testdir\\subdir5'))
