@@ -1,0 +1,7 @@
+Project Discription 
+
+Build a Least Recently Used (LRU) cache. 
+An LRU cache is a type of cache in which we remove the least recently used entry when the cache memory reaches its limit.
+
+In this project, the cache enteries were stored in a dictionary and a queue was used from python collection deque for keeping track of cache histroy or key entries,
+The Time complexity is O(1) using dictionaries and qeues and the space complexity is O(n) the size of the Cache.

@@ -1,0 +1,14 @@
+
+Huffman Coding
+
+A Huffman code is a type of optimal prefix code that is used for compressing data. The Huffman encoding and decoding schema is also lossless, meaning that when compressing the data to make it smaller, there is no loss of information.
+
+The algorithm works by assigning codes that correspond to the relative frequency of each character. 
+The Huffman code can be of any length and does not require a prefix
+Therefore the binary code can be visualized on a binary tree with each encoded character being stored in the leaves.
+
+We used first caclulated the frequency for each set of character in the string,
+then used heapq from python to build a Huffman Tree.
+
+The time complexity of the Huffman Algorithm is O(nlogn). using heap to store the fequencies of each tree, it required O(logn).
+The space complexity is O(n), were n represents the number of distinct symbols in the data

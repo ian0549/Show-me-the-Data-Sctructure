@@ -1,0 +1,10 @@
+Project Discription 
+
+Finding Files 
+For this problem, the goal is to write code for finding all files under a directory (and all directories beneath it) that end with a ".c" extension.
+
+We used recursion to traverse the file hierachy tree whild building a path. Then we check if the path is a file and check again if it ends with ".c", 
+otherwise we continue with the recursion.
+
+The time complexity is O(n) where n is the number of nodes in the file hierachy tree. 
+The space complexity is also O(n) were n represent the files with the desired extention
